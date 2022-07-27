@@ -27,42 +27,42 @@
         </div>
       </nav>
     </section>
-	<!-- Awal Card Form -->
-	<div class="card mt-3">
+
+    <div class="card mt-3">
 	  <div class="card-header bg-primary text-white">
-	    Form Input Absen
+	    Tampil Absen
 	  </div>
 	  <div class="card-body">
-	    <form method="post" action="">
-	    	<div class="form-group">
-	    		<label>Nis</label>
-	    		<input type="text" name="tnis" value="" class="form-control" placeholder="Input Ni disini!" required>
-	    	</div>
-	    	<div class="form-group">
-	    		<label>Nama</label>
-	    		<input type="text" name="tnama" value="" class="form-control" placeholder="Input Nama disini!" required>
-	    	</div>
-	    	<div class="form-group">
-	    		<label>Kelas</label>
-	    		<select class="form-control" name="tkelas">
-	    			<option value=""></option>
+	    
+	    <table class="table table-bordered table-striped">
+	    	<tr>
+	    		<th>No.</th>
+	    		<th>Nis</th>
+	    		<th>Nama Lengkap</th>
+	    		<th>Kelas</th>
+	    		<th>Aksi</th>
+	    	</tr>
+            
+	    	<?php
+	    		$no = 1;
+	    		$tampil = mysqli_query($koneksi, "SELECT * from ... order by id desc");
+	    		while($data = mysqli_fetch_array($tampil)) :
 
-	    			<option value="">1</option>
-	    			<option value="">2</option>
-	    			<option value="">3</option>
-	    			<option value="">4</option>
-	    			<option value="">5</option>
-	    			<option value="">6</option>
-
-	    		</select>
-	    	</div>
-
-	    	<button type="submit" class="btn btn-success" name="bsimpan">Simpan</button>
-	    	<button type="reset" class="btn btn-danger" name="breset">Kosongkan</button>
-
-	    </form>
+	    	?>
+	    	<tr>
+	    		<td><?=$no++;?></td>
+	    		<td><?=$data['nis']?></td>
+	    		<td><?=$data['namalengkap']?></td>
+	    		<td><?=$data['idkelas']?></td>
+	    		<td>
+	    			
+	    		</td>
+	    	</tr>
+	    <?php endwhile; //penutup perulangan while ?>
+	    </table>
 	  </div>
 	</div>
+    
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0/dist/js/bootstrap.bundle.min.js" integrity="sha384-A3rJD856KowSb7dwlZdYEkO39Gagi7vIsF0jrRAoQmDKKtQBHUuLZ9AsSv4jD4Xa" crossorigin="anonymous"></script>
   </body>
 </html>
